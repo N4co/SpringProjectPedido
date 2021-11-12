@@ -17,9 +17,7 @@ public class CategoriaDTO implements Serializable {
 	public CategoriaDTO(Categoria obj) {
 		id = obj.getId();
 		nome = obj.getNome();
-		
 	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -35,6 +33,4 @@ public class CategoriaDTO implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
 }
