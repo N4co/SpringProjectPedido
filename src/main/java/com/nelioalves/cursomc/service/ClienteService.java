@@ -37,7 +37,7 @@ public class ClienteService {
 		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
 
-
+  @Transactional
     public Cliente insert(Cliente obj) {
     	obj.setId(null);
     	obj = repo.save(obj);
@@ -71,7 +71,7 @@ public class ClienteService {
 		  public Cliente fromDTO (ClienteDTO objDto ) {
 			  return new Cliente(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
 		  }
-		@Transactional
+	
 		  public Cliente fromDTO (ClienteNewDTO objDto ) {
 		  Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(), TipoCliente.toEnum(objDto.getTipo()));
 		  Cidade cid = new Cidade(objDto.getCidadeId(), null, null);
