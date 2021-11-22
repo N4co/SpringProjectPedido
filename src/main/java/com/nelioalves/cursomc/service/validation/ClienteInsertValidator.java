@@ -16,6 +16,7 @@ import com.nelioalves.cursomc.resources.exception.FieldMessage;
 import com.nelioalves.cursomc.service.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator <ClienteInsert, ClienteNewDTO> {
+	@SuppressWarnings("unused")
 	private ClienteNewDTO objDTO;
 
 	

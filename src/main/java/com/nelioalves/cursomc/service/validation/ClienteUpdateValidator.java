@@ -13,12 +13,11 @@ import org.springframework.web.servlet.HandlerMapping;
 
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.dto.ClienteDTO;
-import com.nelioalves.cursomc.dto.ClienteNewDTO;
 import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.resources.exception.FieldMessage;
 
 public class ClienteUpdateValidator implements ConstraintValidator <ClienteUpdate, ClienteDTO> {
-	private ClienteNewDTO objDTO;
+	
 
 	@Autowired
 	private HttpServletRequest request;
@@ -26,10 +25,6 @@ public class ClienteUpdateValidator implements ConstraintValidator <ClienteUpdat
 	@Autowired
 	private ClienteRepository repo;
 
-	private Object uriId;
-	
-	
-	
 	@Override
 	public void initialize(ClienteUpdate ann) {
 	}
@@ -40,7 +35,8 @@ public class ClienteUpdateValidator implements ConstraintValidator <ClienteUpdat
 @SuppressWarnings("unchecked")
 Map<String, String> map = (Map<String, String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 Integer uriId = Integer.parseInt(map.get("id"));		
-		List<FieldMessage> list = new ArrayList<>();
+		
+List<FieldMessage> list = new ArrayList<>();
 		
 		
 		Cliente aux = repo.findByEmail(objDTO.getEmail());
