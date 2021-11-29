@@ -6,11 +6,11 @@ public enum TipoCliente {
 	PESSOAJURIDICA(2, "Pessoa Juridica");
 	
 	private int cod;
-	private String descrição;
+	private String descricao;
 	
-	private TipoCliente(int cod, String descrição) {
+	private TipoCliente(int cod, String descricao) {
 		this.cod = cod;
-        this.descrição = descrição;	
+        this.descricao = descricao;	
 	}
 
 	public int getCod() {
@@ -18,7 +18,7 @@ public enum TipoCliente {
 	}
 
 	public String getDescrição() {
-		return descrição;
+		return descricao;
 	}
 	
 	public static TipoCliente toEnum(Integer cod) {

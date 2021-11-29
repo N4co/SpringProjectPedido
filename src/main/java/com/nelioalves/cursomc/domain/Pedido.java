@@ -139,7 +139,7 @@ public class Pedido  implements Serializable {
 	@Override
 	public String toString() {
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH : mm : ss ");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		StringBuilder builder = new StringBuilder();
 		builder.append("Pedido número");
 		builder.append(getId()); 
@@ -148,7 +148,7 @@ public class Pedido  implements Serializable {
 		builder.append(", Cliente: ");
 		builder.append(getCliente().getNome());
 		builder.append(", Situação do pagamento: ");
-		builder.append(getPagamento().getEstado().getDescrição());
+		builder.append(getPagamento().getEstado().getDescricao());
 		builder.append("\nDetalhes:\n");
 		for(ItemPedido ip : getItens()) {
 			builder.append(ip.toString());
