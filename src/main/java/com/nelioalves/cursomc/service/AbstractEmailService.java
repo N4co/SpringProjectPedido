@@ -15,6 +15,8 @@ import org.thymeleaf.context.Context;
 
 import com.nelioalves.cursomc.domain.Pedido;
 
+
+
 public abstract class AbstractEmailService implements EmailService {
 
 	@Value("${default.sender}")
@@ -63,7 +65,7 @@ public abstract class AbstractEmailService implements EmailService {
         MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
         mmh.setTo(obj.getCliente().getEmail());
         mmh.setFrom(sender);
-        mmh.setSubject("pedido confirmado" + obj.getId());
+        mmh.setSubject("Pedido confirmado !" + obj.getId());
         mmh.setSentDate(new Date(System.currentTimeMillis()));
         mmh.setText(htmlFromTemplatePedido(obj), true);
         return mimeMessage;

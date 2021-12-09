@@ -8,19 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SmtpEmailService extends AbstractEmailService {
 
 	@Autowired
 	private MailSender mailSender;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(SmtpEmailService.class);
-	
-	@Autowired
-	private MailSender MailSender;
-	
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SmtpEmailService.class);
 	
 	@Override
 	public void sendEmail(SimpleMailMessage msg) {
@@ -34,7 +33,7 @@ public class SmtpEmailService extends AbstractEmailService {
 		LOG.info("Envio de email HTML...");
 		javaMailSender.send(msg);
 		LOG.info("Email enviado....");
-		
+	}
 	}
 
 	
@@ -46,4 +45,4 @@ public class SmtpEmailService extends AbstractEmailService {
 	
 	
 	
-}
+
